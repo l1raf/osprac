@@ -7,7 +7,7 @@
 
 int main()
 {
-  int fd[2], size, bSize;
+  int fd[2], size = 0, bSize = 0;
 
   if (pipe2(fd, O_NONBLOCK) < 0) 
   {
@@ -17,10 +17,10 @@ int main()
 
   do
   {
-    size = write(fd[1], "a", 2);
-    bSize += 2;
+    size = write(fd[1], "a", 1);
+    bSize++;
   } 
   while (size > 0);
 
-  printf("Buffer size: %d\n", bSize);
+  printf("Buffer size: %d\n", --bSize);
 }
