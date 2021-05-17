@@ -12,7 +12,6 @@ int main() {
   int msqid;
   char pathname[] = "server.c";
   key_t key;
-
   int len, maxlen;
 
   struct clientmgsbuf {
