@@ -6,7 +6,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdbool.h>
-#include <errno.h>
 
 int main() {
   int msqid;
@@ -35,12 +34,7 @@ int main() {
     exit(-1);
   }
 
-  if ((msqid = msgget(key, IPC_CREAT | 0666 | IPC_EXCL)) < 0) {
-    if (msqid == -1 && EEXIST == errno) {
-      printf("One server is already running\n");
-      exit(-1);
-    }
-
+  if ((msqid = msgget(key, IPC_CREAT | 0666)) < 0) {
     printf("Can\'t get msqid\n");
     exit(-1);
   }
