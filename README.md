@@ -1,2 +1,2 @@
-# Курбанова Сабият
-БПИ193
+# osprac
+OS course labs
